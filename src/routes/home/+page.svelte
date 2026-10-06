@@ -4,10 +4,7 @@
 	const pressKitUrl = '/presskit';
 
 	const screenshots = [
-		{ src: '/screenshots/01.png', alt: 'Screenshot 1' },
-		{ src: '/screenshots/02.png', alt: 'Screenshot 2' },
-		{ src: '/screenshots/03.png', alt: 'Screenshot 3' },
-		{ src: '/screenshots/04.png', alt: 'Screenshot 4' }
+
 	];
 
 	const links = [
