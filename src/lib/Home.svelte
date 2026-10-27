@@ -50,12 +50,10 @@
         gap: 3vh;
 
         height: auto;
-        border: 2px solid blue;
 
     }
 
     .right {
-        border: 2px solid red;
     }
 
     .youtube {
