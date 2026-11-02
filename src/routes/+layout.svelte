@@ -25,7 +25,8 @@
 
 	.main-grid {
 		display: grid;
-		grid-template-rows: auto 10%;
+		grid-template-rows: 1fr auto;
+		grid-template-columns: minmax(0, 1fr); // stops wide content like the steam widget's frame from stretching the page
 		min-height: 100vh;
 	}
 
@@ -41,5 +42,9 @@
 	.content {
 		@include center;
 		padding: ($navbar-height + 5vh) 20vw 5vh 20vw;
+
+		@media (max-width: 800px) {
+			padding-inline: 5vw;
+		}
 	}
 </style>
