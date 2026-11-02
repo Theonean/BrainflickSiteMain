@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Cannon Keep</title>
+	<title>Cannon Keep - Brainflick</title>
 </svelte:head>
 
 <!-- Header and Footer are added in layout.svelte -->
