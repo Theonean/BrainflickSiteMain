@@ -6,6 +6,9 @@
     // open only matters on mobile, where the links are hidden behind the navbar's menu button
     let { options, open = false }: { options: Array<string>, open?: boolean } = $props();
 
+    // the home page shows the same content as /cannon-keep, so it highlights that link too
+    const currentPath = $derived(page.route.id === '/' ? resolve('/cannon-keep') : page.url.pathname);
+
     // this turns e.g. 'About us' into 'about-us'
     // does it mean, that the option names need to match the route names for this component to work? perhaps...
     const getPathName = (option: string) => {
@@ -19,8 +22,8 @@
         <a
             {href}
             class="option"
-            class:selected={page.url.pathname === href}
-            aria-current={page.url.pathname === href ? 'page' : undefined}
+            class:selected={currentPath === href}
+            aria-current={currentPath === href ? 'page' : undefined}
         >
             {option}
         </a>

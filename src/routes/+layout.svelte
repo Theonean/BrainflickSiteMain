@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<title>Brainflick</title>
+	<meta property="og:site_name" content="Brainflick" />
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
