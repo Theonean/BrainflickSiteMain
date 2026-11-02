@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { resolve } from "$app/paths";
+
     let status: 'idle' | 'sending' | 'done' | 'error' = $state('idle');
 
     async function subscribe(event: SubmitEvent) {
@@ -34,6 +36,7 @@
         <input type="hidden" name="subform" value="yes" />
         <input type="submit" name="submit" id="submit" value={status === 'sending' ? 'Joining…' : 'Join the newsletter'} disabled={status === 'sending'} />
     </form>
+    <p class="note">By signing up, you agree to receive our newsletter. See our <a href={resolve("/privacy")}>Privacy Policy</a>.</p>
     {#if status === 'error'}
     <p role="alert">Something went wrong. Please try again.</p>
     {/if}
@@ -43,22 +46,16 @@
 <style lang="scss">
     section {
         width: 100%;
-        padding: 2.5rem 0;
+        padding-block: 2rem;
         text-align: center;
     }
 
     h2 {
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
     }
 
     p {
         margin: 1rem auto 0;
-        line-height: 1.6;
-    }
-
-    input:focus-visible {
-        outline: 0px solid currentColor;
-        outline-offset: 4px;
     }
 
     /* no boxes, underline-only inputs */
@@ -67,50 +64,51 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.25rem 1.5rem;
     }
 
     input {
         flex: 1 1 12rem;
         min-width: 0;
-        padding: 0.4rem 0;
+        padding: 0.5rem 0;
         font: inherit;
         color: inherit;
         background: none;
         border: none;
         border-bottom: 2px solid currentColor;
         border-radius: 0;
+        transition: border-color 0.15s;
+    }
+
+    // the underline takes the place of the focus outline
+    input:focus-visible {
+        outline: none;
+        border-bottom-color: $orange;
+    }
+
+    // keeps browser autofill from painting a light box behind the text
+    input:-webkit-autofill {
+        -webkit-text-fill-color: white;
+        transition: background-color 9999s;
     }
 
     input::placeholder {
         color: inherit;
-        opacity: 0.6;
+        opacity: 0.7;
     }
 
     input[type="submit"] {
+        @include button;
         flex: 0 0 auto;
-        padding: 0.6rem 1.25rem;
-        font-weight: 700;
-        border: none;
-        background-color: $orange;
-        border-radius: 8px;
-        color: white;
-        text-decoration: none;
-        text-underline-offset: 0.2em;
-        cursor: pointer;
-        transition: background-color 0.2s, color 0.2s;
-    }
-
-    // also on keyboard focus, since the focus outline above is off
-    input[type="submit"]:hover:not(:disabled),
-    input[type="submit"]:focus-visible {
-        background-color: white;
-        color: $orange;
     }
 
     input[type="submit"]:disabled {
         opacity: 0.6;
         cursor: wait;
+    }
+
+    .note {
+        font-size: 0.875rem;
     }
 
     .visually-hidden {

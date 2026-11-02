@@ -30,21 +30,13 @@
 		min-height: 100vh;
 	}
 
-	// fixed so the gradient stays screen-height on pages that scroll
-	.main-grid::before {
-		content: '';
-		position: fixed;
-		inset: 0;
-		z-index: -1;
-		background: $purple;
-	}
-
 	.content {
 		@include center;
-		padding: ($navbar-height + 5vh) 20vw 5vh 20vw;
+		padding: ($navbar-height + 4rem) $gutter 5rem;
 
 		@media (max-width: 800px) {
-			padding-inline: 5vw;
+			padding-top: $navbar-height + 2rem;
+			padding-bottom: 3rem;
 		}
 	}
 </style>

@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Privacy Policy</h1>
-    <p>Last updated: April 10, 2026</p>
+    <p>Last updated: November 2, 2026</p>
 
     <div class="spacer"></div>
     <h2>1. Who we are</h2>
@@ -17,6 +17,7 @@
     <ul>
         <li>our website at brainflick.ch</li>
         <li>our game distributed through Steam</li>
+        <li>our newsletter</li>
         <li>our use of GameAnalytics for gameplay analytics and technical error reporting</li>
     </ul>
 
@@ -37,7 +38,7 @@
     </ul>
 
     <p>
-        We use the website mainly to present our game, including a trailer, a presskit link, and information about our studio.
+        We use the website mainly to present our game, including a trailer, a presskit link, a newsletter signup, and information about our studio.
         
         We do not offer user accounts or user profiles on our website.
     </p>
@@ -49,6 +50,26 @@
 
         When you load or interact with the embedded YouTube video, or when you open the Google Drive link, those third-party services may process technical data about you under their own privacy policies.
     </p>
+
+    <h3>Newsletter</h3>
+
+    <p>
+        You can sign up for our newsletter on our website to receive news about our games and studio.
+
+        When you sign up, we process:
+    </p>
+    <ul>
+        <li>your email address</li>
+        <li>your name, if you provide it</li>
+        <li>the date and time of your signup, and technical data such as your IP address</li>
+        <li>whether you open our emails or click links in them</li>
+    </ul>
+    <p>
+        We use this data only to send you the newsletter, to understand how it is used, and to manage your subscription.
+
+        You can unsubscribe at any time using the link in every newsletter. Unsubscribing also stops the tracking of opens and clicks.
+    </p>
+
     <h3>Game</h3>
 
     <p>
@@ -86,6 +107,7 @@
         <li>analyze gameplay and improve the game</li>
         <li>identify bugs, warnings, technical issues, and balancing problems</li>
         <li>make Steam-related game features available</li>
+        <li>send our newsletter to people who signed up for it</li>
         <li>comply with legal obligations</li>
         <li>protect our rights and prevent misuse</li>
     </ul>
@@ -111,7 +133,7 @@
         We may share data with service providers and platforms that are relevant to our website and game, including:
     </p>
     <ul>
-        <li>Hetzner for website hosting</li>
+        <li>GitHub Pages for website hosting</li>
         <li>YouTube for the embedded trailer</li>
         <li>Google Drive for the presskit link</li>
         <li>Valve / Steam for game distribution and Steam platform features</li>
@@ -137,6 +159,7 @@
     <ul>
         <li>website server logs are kept only as long as needed for security, stability, and troubleshooting</li>
         <li>analytics and technical error data are kept only as long as needed to analyze, improve, and support the game</li>
+        <li>newsletter data is kept until you unsubscribe; after that, we keep your email address on a suppression list so that we do not email you again</li>
         <li>business records may be kept longer where required by law</li>
     </ul>
 
@@ -191,31 +214,29 @@
 
 <style lang="scss">
     .container {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
+        width: min(100%, $column-width);
         text-align: left;
     }
 
     li {
-        margin-left: 1em;
+        margin-left: 1.25rem;
     }
 
     .spacer {
-        height: 2em;
+        height: 1.5rem;
     }
 
     h2 {
-        margin-bottom: 1em;
+        margin-bottom: 0.75rem;
     }
 
     h3 {
-        margin-bottom: 0.5em;
-        margin-top: 0.5em;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
     ul {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
     }
 </style>

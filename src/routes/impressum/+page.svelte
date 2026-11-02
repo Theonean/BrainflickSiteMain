@@ -51,17 +51,15 @@
 
 <style lang="scss">
     .container {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
+        width: min(100%, $column-width);
         text-align: left;
     }
 
     .spacer {
-        height: 2em;
+        height: 1.5rem;
     }
 
     h2 {
-        margin-bottom: 1em;
+        margin-bottom: 0.75rem;
     }
 </style>

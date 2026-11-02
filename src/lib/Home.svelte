@@ -33,7 +33,7 @@
         </iframe>
     </div>
     <p class='description'>Build your city block by block and defeat waves of mechs in this tower defense roguelike! Combine powerful cannons with unique effects to survive the unforgiving wasteland and explore the underground to gather resources and find powerful relics.</p>
-        <section class="press">
+    <section class="press">
         <h2>Want to cover Cannon Keep?</h2>
         <a href={resolve("/press-kit")}>Check out our press kit</a>
     </section>
@@ -46,20 +46,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 3vh;
-        width: min(100%, max(40vw, 30rem));
+        gap: 2rem;
+        width: min(100%, $column-width);
         height: auto;
     }
 
     .description {
         width: 100%;
-        padding: 1.5rem;
-        color: white;
-        border-radius: 8px;
-        border: 2px solid $orange;
+        font-size: 1.25rem;
     }
 
     .youtube {
+        display: block;
         aspect-ratio: 16 / 9;
         width: 100%;
         height: auto;
@@ -78,26 +76,15 @@
     // same look as the newsletter section and its button
     .press {
         width: 100%;
-        padding-bottom: 2.5rem;
+        padding-block: 2rem;
         text-align: center;
 
         h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         a {
-            display: inline-block;
-            padding: 0.6rem 1.25rem;
-            color: white;
-            background-color: $orange;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s, color 0.2s;
-
-            &:hover {
-                color: $orange;
-                background-color: white;
-            }
+            @include button;
         }
     }
 </style>

@@ -14,7 +14,7 @@
 <svelte:window onkeydown={(event) => { if (event.key === "Escape") menuOpen = false; }} />
 
 <div class="navbar">
-    <a href={resolve("/cannon-keep")}>
+    <a class="home" href={resolve("/cannon-keep")}>
         <img
             class="logo"
             src={logo}
@@ -45,42 +45,40 @@
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
 
-        /* could add a transparency gradient here maybe*/
         position: fixed;
         top: 0;
         z-index: 10;
         background: $orange;
-        overflow: hidden;
         width: 100%;
-        padding: 10px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.5rem;
+        min-height: $navbar-height;
+        padding-inline: $gutter;
+        font-size: 1.125rem;
 
         // the open menu becomes a second row, so the navbar grows to fit it
         @media (max-width: 800px) {
             grid-template-columns: 1fr auto;
+            grid-template-rows: $navbar-height auto;
         }
+    }
 
-        a {
-            padding: 0;
-            font-weight: normal;
-            text-decoration: none;
-            color: white;
-        }
+    .home {
+        justify-self: start;
+        display: block;
 
-        a:hover {
-            color: $purple;
+        &:hover {
+            background: none;
         }
 
         .logo {
-            width: 4rem;
-            padding: 0;
+            display: block;
+            width: 3rem;
         }
     }
 
     .menu-button {
         display: none;
         padding: 6px;
+        margin-right: -6px; // lines the icon up with the page gutter, despite its tap target padding
         color: white;
         background: none;
         border: none;
@@ -94,10 +92,6 @@
 
         &:hover {
             color: $purple;
-        }
-
-        &:focus-visible {
-            outline: 2px solid white;
         }
 
         svg {

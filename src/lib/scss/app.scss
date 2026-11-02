@@ -27,11 +27,22 @@
 a {
     font-weight: bold;
     color: $terracotta;
+    text-underline-offset: 0.2em;
 
     &:hover {
         color: $purple;
         background-color: $orange; // $purple is also the page background, the text would vanish without this
     }
+}
+
+:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+::selection {
+    color: white;
+    background-color: $orange;
 }
 
 *, *::before, *::after {
@@ -42,18 +53,32 @@ html, body {
     overscroll-behavior: none;
 }
 
-h1 {
-    font-family: "Roboto";
+h1, h2, h3 {
+    font-family: "Roboto", sans-serif;
     font-weight: bold;
+    line-height: 1.2;
     color: white;
+}
+
+h1 {
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
     margin-bottom: 1.5rem;
 }
 
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.125rem;
+}
+
 body {
-    background-color: $background;
+    background-color: $purple;
     height: 100vh;
     display: flex;
     flex-direction: column;
     color: white;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
 }

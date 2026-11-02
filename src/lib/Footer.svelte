@@ -25,7 +25,8 @@
         gap: 1rem;
         align-items: center;
         width: 100%;
-        padding: 16px;
+        padding: 1rem $gutter;
+        font-size: 0.9375rem;
         border-top: 2px solid $orange;
 
         @media (max-width: 800px) {
@@ -43,7 +44,8 @@
     .right {
         display: flex;
         justify-content: flex-end;
-        gap: 1.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
 
         @media (max-width: 800px) {
             justify-content: center;
@@ -56,6 +58,7 @@
     }
 
     a {
+        font-weight: normal;
         color: white;
 
         &:hover {

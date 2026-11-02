@@ -53,7 +53,9 @@
         {/each}
     </div>
     <div class="controls">
-        <button class="arrow" aria-label="Previous screenshot" onclick={() => show(current - 1)}>&lsaquo;</button>
+        <button class="arrow" aria-label="Previous screenshot" onclick={() => show(current - 1)}>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5 8 12 15 19" /></svg>
+        </button>
         <div class="thumbnails" bind:this={strip}>
             {#each screenshots as shot, i}
                 <button
@@ -67,7 +69,9 @@
                 </button>
             {/each}
         </div>
-        <button class="arrow" aria-label="Next screenshot" onclick={() => show(current + 1)}>&rsaquo;</button>
+        <button class="arrow" aria-label="Next screenshot" onclick={() => show(current + 1)}>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 5 16 12 9 19" /></svg>
+        </button>
     </div>
 </section>
 
@@ -91,10 +95,12 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0s 0.3s; // the old screenshot stays up until the new one has faded in on top of it
 
             &.visible {
+                z-index: 1;
                 opacity: 1;
+                transition: opacity 0.3s;
             }
         }
     }
@@ -102,7 +108,7 @@
     .controls {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.25rem;
     }
 
     .thumbnails {
@@ -147,12 +153,21 @@
     }
 
     .arrow {
-        padding: 0 0.5rem;
-        font-size: 2rem;
-        line-height: 1;
+        flex: none;
+        padding: 10px 6px; // with the 24px icon this makes a 44px tall tap target
+        transition: color 0.15s;
 
         &:hover {
             color: $orange;
+        }
+
+        svg {
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
     }
 

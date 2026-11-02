@@ -68,8 +68,10 @@
 <!-- Header and Footer are added in layout.svelte -->
 
 <div class="container">
-	<img class="hero" src={capsuleMain} alt="Cannon Keep key art with the game's logo" />
-	<h1>Cannon Keep Press Kit</h1>
+	<header>
+		<img class="hero" src={capsuleMain} alt="Cannon Keep key art with the game's logo" />
+		<h1>Cannon Keep Press Kit</h1>
+	</header>
 
 	<div class="overview">
 		<dl class="facts">
@@ -138,7 +140,7 @@
 
 	<section>
 		<h2>Screenshots</h2>
-		<div class="grid">
+		<div class="grid screenshots">
 			{#each screenshots as shot}
 				<a href={driveFile(shot.id)} target="_blank" rel="noopener noreferrer">
 					<img src={shot.src} alt={shot.alt} loading="lazy" />
@@ -149,7 +151,7 @@
 
 	<section>
 		<h2>Logo & Key Art</h2>
-		<div class="grid">
+		<div class="grid assets">
 			{#each logosAndArt as asset}
 				<a class="captioned" href={driveFile(asset.id)} target="_blank" rel="noopener noreferrer">
 					<img class:on-white={asset.onWhite} src={asset.src} alt="" loading="lazy" />
@@ -170,22 +172,20 @@
 
 <style lang="scss">
 	.container {
-		width: 100%;
+		width: min(100%, $column-width-wide);
 		display: flex;
 		flex-direction: column;
-		gap: 2.5rem;
-		line-height: 1.6;
+		gap: 3.5rem;
 	}
 
 	.hero {
 		display: block;
 		width: 100%;
 		height: auto;
-		border-radius: 8px;
 	}
 
 	h1 {
-		margin-bottom: 0;
+		margin: 2.5rem 0 0;
 	}
 
 	h2 {
@@ -193,32 +193,33 @@
 	}
 
 	h3 {
-		margin-top: 1rem;
+		margin-top: 1.25rem;
+		margin-bottom: 0.25rem;
 	}
 
 	.overview {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-		gap: 3rem;
+		gap: 3.5rem;
 		align-items: start;
 
-		// the content column is only 60% of the page, so the two sides get cramped well before phone width
-		@media (max-width: 1100px) {
+		// the two sides get cramped well before phone width
+		@media (max-width: 1000px) {
 			grid-template-columns: minmax(0, 1fr);
-			gap: 2.5rem;
+			gap: 3rem;
 		}
 	}
 
 	.descriptions {
 		display: flex;
 		flex-direction: column;
-		gap: 2.5rem;
+		gap: 3rem;
 	}
 
 	.facts {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		gap: 0.5rem 1.5rem;
+		gap: 0.75rem 1.5rem;
 
 		@media (max-width: 800px) {
 			grid-template-columns: 1fr;
@@ -232,6 +233,7 @@
 
 	dt {
 		font-weight: bold;
+		color: $background;
 	}
 
 	dd {
@@ -242,37 +244,75 @@
 		padding-left: 1.25rem;
 	}
 
+	li + li {
+		margin-top: 0.25rem;
+	}
+
 	iframe {
 		display: block;
 		aspect-ratio: 16 / 9;
 		width: 100%;
 		height: auto;
-		margin-bottom: 1rem;
+		margin-bottom: 1.25rem;
 	}
 
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
 		gap: 1rem;
 		align-items: start;
 
 		a {
 			display: block;
+			color: white;
+			font-weight: normal;
+			text-decoration: none;
+
+			&:hover {
+				color: $orange;
+				background: none;
+
+				img {
+					outline-color: $orange;
+				}
+			}
 		}
 
 		img {
 			display: block;
 			width: 100%;
 			height: auto;
+			outline: 2px solid transparent;
+			transition: outline-color 0.15s;
+		}
+	}
+
+	.screenshots {
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+
+		// one big one on top, so the seven screenshots fill the grid evenly
+		a:first-child {
+			grid-column: 1 / -1;
+		}
+	}
+
+	// these all have different shapes, so each sits centered in a tile of the same size
+	.assets {
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+
+		img {
+			aspect-ratio: 16 / 9;
+			padding: 0.75rem;
+			object-fit: contain;
+			background: $purple-light;
 		}
 	}
 
 	.captioned span {
 		display: block;
-		padding: 0.25rem;
+		padding-top: 0.5rem;
 	}
 
-	.on-white {
+	img.on-white {
 		background: white;
 	}
 </style>

@@ -15,9 +15,12 @@
 
 <nav class="container" class:open>
     {#each options as option}
+        {@const href = resolve(getPathName(option))}
         <a
-            href={resolve(getPathName(option))}
-            class="option {page.url.pathname === getPathName(option) ? 'selected' : ''}"
+            {href}
+            class="option"
+            class:selected={page.url.pathname === href}
+            aria-current={page.url.pathname === href ? 'page' : undefined}
         >
             {option}
         </a>
@@ -29,7 +32,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 6vw;
+        gap: clamp(2rem, 5vw, 4rem);
         width: 100%;
 
         @media (max-width: 800px) {
@@ -39,7 +42,7 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            padding: 1rem 0;
+            padding: 0.5rem 0 1.5rem;
 
             &.open {
                 display: flex;
@@ -48,16 +51,18 @@
     }
 
     a.option {
-        border: red 5px;
         color: white;
         font-weight: bold;
         text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.15s;
     }
     a.option:hover {
         color: $purple;
     }
     a.option.selected {
-        background-image: linear-gradient(to top,)
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 0.35em;
     }
-
 </style>

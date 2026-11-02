@@ -11,6 +11,6 @@
 <style lang="scss">
 	// same column width as the home page
 	.container {
-		width: min(100%, max(40vw, 30rem));
+		width: min(100%, $column-width);
 	}
 </style>
