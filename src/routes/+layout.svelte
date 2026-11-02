@@ -29,16 +29,17 @@
 		min-height: 100vh;
 	}
 
+	// fixed so the gradient stays screen-height on pages that scroll
+	.main-grid::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		background: $purple;
+	}
+
 	.content {
 		@include center;
 		padding: ($navbar-height + 5vh) 20vw 5vh 20vw;
-        background:
-			url('$lib/assets/clouds.png') no-repeat top,
-			linear-gradient(to bottom, #f8ead5, #f6e2c7, #f5d9b9, #f4d1ab, #f3c89e, #edbb91, #e6af85, #e0a279, #d28f6b, #c47b5f, #b66953, #a75649);
-		background-origin: border-box;
-		background-size: contain;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
 	}
 </style>

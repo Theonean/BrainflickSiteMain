@@ -8,6 +8,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('$lib/assets/fonts/Roboto.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('$lib/assets/fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 a {
     font-weight: bold;
     color: $terracotta;
@@ -25,13 +41,18 @@ html, body {
     overscroll-behavior: none;
 }
 
+h1 {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
 body {
     background-color: $background;
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-h1 {
-    font-family: "Verve";
+    color: white;
+    font-family: "Roboto";
 }

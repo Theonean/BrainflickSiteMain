@@ -34,6 +34,12 @@
 
     a.option {
         border: red 5px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    a.option:hover {
+        color: $text;
     }
     a.option.selected {
         background-image: linear-gradient(to top,)

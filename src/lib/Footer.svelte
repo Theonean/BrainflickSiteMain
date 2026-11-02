@@ -27,11 +27,15 @@
         align-items: center;
         width: 100%;
         padding: 10px;
-        background-color: #a75649;
+        background-color: $orange;
     }
 
     p {
         margin: 0;
         color: $background;
+    }
+
+    a {
+        color: white;
     }
 </style>
