@@ -10,14 +10,15 @@
             alt="Brainflick Studios Logo"
         />
     </a> 
-    <PageNav options={['Home', 'About us']}/>
+    <PageNav options={['Cannon Keep', 'About us', 'Newsletter']}/>
 </div>
 
 <style lang="scss">
     .navbar {
-        display: flex;
+        // equal outer columns keep the nav links centered on the page, whatever the logo's width
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
         align-items: center;
-        justify-content: space-between;
 
         /* could add a transparency gradient here maybe*/
         position: fixed;
@@ -29,6 +30,10 @@
         font-family: 'Roboto', sans-serif;
         font-size: 1.5rem;
 
+        @media (max-width: 800px) {
+            font-size: 1rem;
+        }
+
         a {
             padding: 0;
             font-weight: normal;
@@ -37,7 +42,7 @@
         }
 
         a:hover {
-            color: $text;
+            color: $purple;
         }
 
         .logo {

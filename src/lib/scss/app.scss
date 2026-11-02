@@ -28,8 +28,9 @@ a {
     font-weight: bold;
     color: $terracotta;
 
-    :hover {
-        color: $text;
+    &:hover {
+        color: $purple;
+        background-color: $orange; // $purple is also the page background, the text would vanish without this
     }
 }
 

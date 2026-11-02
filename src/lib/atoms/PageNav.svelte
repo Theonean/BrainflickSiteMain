@@ -27,9 +27,13 @@
     .container {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 8vw;
         width: 100%;
-        padding: 0 20% 0 20%;
+
+        @media (max-width: 500px) {
+            gap: 4vw;
+        }
     }
 
     a.option {
@@ -39,7 +43,7 @@
         text-decoration: none;
     }
     a.option:hover {
-        color: $text;
+        color: $purple;
     }
     a.option.selected {
         background-image: linear-gradient(to top,)

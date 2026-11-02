@@ -25,7 +25,7 @@
 
     <h3>Website</h3>
 
-    <p>When you visit our website, our hosting provider (Hetzner) may automatically process technical data needed to operate and secure the website. This may include:</p>
+    <p>When you visit our website, our hosting provider (GitHub Pages) may automatically process technical data needed to operate and secure the website. This may include:</p>
 
     <ul>
         <li>IP address</li>

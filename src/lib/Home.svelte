@@ -1,3 +1,8 @@
+<script>
+    import NewsletterSignup from "./atoms/NewsletterSignup.svelte";
+    import ScreenshotCarousel from "./atoms/ScreenshotCarousel.svelte";
+</script>
+
 <div class='container'>
     <iframe
         class="youtube"
@@ -15,7 +20,9 @@
         src="https://store.steampowered.com/widget/3755200/"
         frameborder="0">
     </iframe>
-    <p class='description'>Backpack battles meets tower defense! Place and merge buildings onto the grid to grow your defenses. Expand your city's borders to increase your damage and scavenge the underground for resources.</p>
+    <p class='description'>Build your city block by block and defeat waves of mechs in this tower defense roguelike! Combine powerful cannons with unique effects to survive the unforgiving wasteland and explore the underground to gather resources and find powerful relics.</p>
+    <ScreenshotCarousel />
+    <NewsletterSignup />
 </div>
 
 <style lang="scss">
